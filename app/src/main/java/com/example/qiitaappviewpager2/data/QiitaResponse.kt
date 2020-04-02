@@ -1,6 +1,6 @@
 package com.example.qiitaappviewpager2.data
 
-data class QiitResponse(
+data class QiitaResponse(
     val url: String?,
     val title: String?,
     val user: User?
