@@ -7,7 +7,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-class QiitaRepository () {
+class RetrofitInstance {
 
     private var retrofit: Retrofit
     private val url = "https://qiita.com"
@@ -18,6 +18,7 @@ class QiitaRepository () {
             .build()
 
         //クライアント生成
+        //var client = httpBuilder.build()
         this.retrofit = Retrofit.Builder()
             .baseUrl(url)//基本のurl設定
             .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -36,7 +37,11 @@ class QiitaRepository () {
             .build()
     }
 
-    fun getQiitaData(): QiitaService {
-        return retrofit.create(QiitaService::class.java)
+    fun createService(): QiitaService {
+        //Interfaceから実装を取得
+        var api = retrofit.create(QiitaService::class.java)
+        return api
     }
+
+
 }

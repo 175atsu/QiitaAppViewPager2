@@ -23,4 +23,10 @@ class ListAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemCount(): Int = data.size
+
+    fun setData(i: List<QiitaResponse>) {
+        data.clear()
+        data.addAll(i)
+        notifyDataSetChanged()
+    }
 }
