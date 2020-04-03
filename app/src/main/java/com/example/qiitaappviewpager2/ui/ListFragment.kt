@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.CompositePageTransformer
+import com.example.qiitaappviewpager2.DepthPageTransformer
 import com.example.qiitaappviewpager2.R
 import com.example.qiitaappviewpager2.databinding.FragmentListBinding
 import kotlinx.coroutines.CoroutineScope
@@ -45,19 +46,20 @@ class ListFragment : Fragment() {
         binding.viewpager2.apply {
             this.adapter = listAdapter
             this.offscreenPageLimit = 2
-            this.setPageTransformer(CompositePageTransformer().apply {
-                val pageMarginPx = binding.root.context.resources.getDimensionPixelOffset(R.dimen.page_margin)
-                val offsetPx = binding.root.context.resources.getDimensionPixelOffset(R.dimen.offset)
-                addTransformer { page, position ->
-                    val offset = position * (2 * offsetPx + pageMarginPx)
-                    page.translationX = -offset
-                }
-                addTransformer { page, position ->
-                    val scale = 1 - (abs(position) / 8)
-                    page.scaleX = scale
-                    page.scaleY = scale
-                }
-            })
+//            this.setPageTransformer(CompositePageTransformer().apply {
+//                val pageMarginPx = binding.root.context.resources.getDimensionPixelOffset(R.dimen.page_margin)
+//                val offsetPx = binding.root.context.resources.getDimensionPixelOffset(R.dimen.offset)
+//                addTransformer { page, position ->
+//                    val offset = position * (2 * offsetPx + pageMarginPx)
+//                    page.translationX = -offset
+//                }
+//                addTransformer { page, position ->
+//                    val scale = 1 - (abs(position) / 8)
+//                    page.scaleX = scale
+//                    page.scaleY = scale
+//                }
+//            })
+            this.setPageTransformer(DepthPageTransformer())
         }
         loadData()
         return binding.root
