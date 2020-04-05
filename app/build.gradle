@@ -11,7 +11,7 @@ android {
     buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.example.qiitaappviewpager2"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -55,6 +55,13 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.11.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.8.0'
+
+
+    //pa;ette
+    implementation 'com.android.support:palette-v7:29.0.0'
+
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
 
     //viewPager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
