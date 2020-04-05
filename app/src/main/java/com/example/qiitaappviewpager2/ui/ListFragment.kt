@@ -46,6 +46,7 @@ class ListFragment : Fragment() {
         binding.viewpager2.apply {
             this.adapter = listAdapter
             this.offscreenPageLimit = 2
+//            横チラ見せ
 //            this.setPageTransformer(CompositePageTransformer().apply {
 //                val pageMarginPx = binding.root.context.resources.getDimensionPixelOffset(R.dimen.page_margin)
 //                val offsetPx = binding.root.context.resources.getDimensionPixelOffset(R.dimen.offset)
